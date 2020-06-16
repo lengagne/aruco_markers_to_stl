@@ -1,0 +1,7 @@
+
+
+class interface
+{
+    interface();
+    ~interface();
+};
