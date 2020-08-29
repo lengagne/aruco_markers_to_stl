@@ -1,6 +1,6 @@
 #include <iostream>
 #include <fstream>
-
+#include <regex>
 
 std::string  GetBaseFilename(const std::string filename)
 {
@@ -30,6 +30,12 @@ int main( int argc, char ** argv)
         text = argv[2];
         print_text = true;
         std::cout<<"Using filename " << filename <<" With text: "<< text<<std::endl;
+        
+        if (text == "filename_extract_id")
+        {
+             text = "ID = "+std::regex_replace(filename,std::regex("[^0-9]*([0-9]+).*"),std::string("$1"));
+            std::cout<<"extracting name from filename  text = "<<text<<std::endl;
+        }
         
     }else
     {
