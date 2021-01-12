@@ -55,14 +55,14 @@ int main( int argc, char ** argv)
     fileblack << " difference() \n {    \n translate([5,0,0])  cube([35,35,5],center=true); \n    translate([3,0,2.6])    scale([0.14,0.14,-1])  \n surface(file = \""<<filename<<"\", center = true);";
     if (print_text)
     {
-            fileblack<<"\ntranslate([21.5,-"<< text.size()*1.2<<",-2.5])   rotate([0,0,90])  linear_extrude(6)  text (\""<<text<<"\",font=\"bold\",size=3);";
+            fileblack<<"\ntranslate([22.0,-"<< text.size()*1.2<<",-2.5])   rotate([0,0,90])  linear_extrude(6)  text (\""<<text<<"\", font=\"Ubuntu Mono:style=Bold\", $fn=50,size= 4);";
     }
     fileblack<<"\n } " <<std::endl;
     fileblack.close();
 
     ofstream filewhite;
     filewhite.open ("white.scad");
-    if(print_text)  filewhite<<"union(){ \n translate([21.5,-"<< text.size()*1.2<<",-2.5])   rotate([0,0,90])  linear_extrude(5)  text (\""<<text<<"\",font=\"bold\",size=3); \n";
+    if(print_text)  filewhite<<"union(){ \n translate([22.0,-"<< text.size()*1.2<<",-2.5])   rotate([0,0,90])  linear_extrude(5)  text (\""<<text<<"\", font=\"Ubuntu Mono:style=Bold\", $fn=50,size= 4); \n";
     filewhite << " intersection() \n {    \n cube([35,35,5],center=true); \n    translate([3,0,2.6])    scale([0.14,0.14,-1])  \n surface(file = \""<<filename<<"\", center = true); \n } " <<std::endl;
     if(print_text)  filewhite<<"} \n";
     filewhite.close();
